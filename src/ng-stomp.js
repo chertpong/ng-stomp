@@ -50,7 +50,7 @@ angular
         return this.stomp.subscribe(destination, function (res) {
           var payload = null
           try {
-            payload = JSON.parse(res.body)
+            payload = angular.toJson(res.body)
           } finally {
             if (callback) {
               callback(payload, res.headers, res)
